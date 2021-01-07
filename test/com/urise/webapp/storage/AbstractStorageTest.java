@@ -1,5 +1,6 @@
 package com.urise.webapp.storage;
 
+import com.urise.webapp.Config;
 import com.urise.webapp.exeption.ExistStorageException;
 import com.urise.webapp.exeption.NotExistStorageException;
 import com.urise.webapp.exeption.StorageException;
@@ -15,7 +16,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public abstract class AbstractStorageTest {
-    protected static final File STORAGE_DIR = new File("C:\\Users\\voite\\IdeaProjects\\ResumeDB\\storage");
+    protected static final File STORAGE_DIR = Config.get().getStorage_dir();
 
     protected Storage storage;
 
@@ -35,7 +36,7 @@ public abstract class AbstractStorageTest {
         R3 = new Resume(UUID_3, "Name3");
         R4 = new Resume(UUID_4, "Name4");
 
-        R1.addContact(ContactType.MAIL, "mail1@ya.ru");
+       /* R1.addContact(ContactType.MAIL, "mail1@ya.ru");
         R1.addContact(ContactType.PHONE, "11111");
         R1.addSection(SectionType.OBJECTIVE, new TextSection("Objective1"));
         R1.addSection(SectionType.PERSONAL, new TextSection("Personal data"));
@@ -57,7 +58,7 @@ public abstract class AbstractStorageTest {
         R1.addSection(SectionType.EXPERIENCE,
                 new OrganizationSection(
                         new Organization("Organization2", "http://Organization2.ru",
-                                new Organization.Position(2015, Month.JANUARY, "position1", "content1"))));
+                                new Organization.Position(2015, Month.JANUARY, "position1", "content1"))));*/
     }
 
     protected AbstractStorageTest(Storage storage) {
